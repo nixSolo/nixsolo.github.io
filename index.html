@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Siege - A behavioral tool designed to help you commit to one real change at a time. Presence over perfection.">
+    <meta name="theme-color" content="#0D1110">
     <title>The Siege | Intentional Change</title>
     
     <!-- Typography -->
@@ -12,16 +14,31 @@
     
     <style>
         :root {
-            /* Premium Dark Theme Palette */
+            /* Premium Dark Theme Palette - Matched to Flutter App */
             --bg-base: #0D1110;
             --bg-surface: #161B19;
+            --bg-surface-light: #1A201E;
             --text-main: #EAE8E1;
-            --text-muted: rgba(234, 232, 225, 0.65);
-            --text-subtle: rgba(234, 232, 225, 0.4);
+            --text-muted: rgba(234, 232, 225, 0.7);
+            --text-subtle: rgba(234, 232, 225, 0.5);
             --gold: #D4AF37;
+            --gold-light: #E6C259;
             --sage: #8DA399;
-            --border-light: rgba(255, 255, 255, 0.06);
-            --glow: rgba(141, 163, 153, 0.15);
+            --sage-light: #A5BDB0;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --glow-sage: rgba(141, 163, 153, 0.2);
+            --glow-gold: rgba(212, 175, 55, 0.15);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.6);
+            
+            /* Spacing Scale */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 64px;
+            --space-xxl: 120px;
         }
 
         * {
@@ -30,6 +47,10 @@
             padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,33 +63,45 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(ellipse at top, var(--bg-surface-light) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(141, 163, 153, 0.03) 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 {
             font-family: 'DM Serif Display', serif;
-            font-weight: normal;
-            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
         h1 {
-            font-size: clamp(3rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            letter-spacing: -0.5px;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             color: var(--text-main);
         }
 
         h2 {
-            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
             color: var(--text-main);
-            position: relative;
-            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--sage-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         p {
             font-size: 1.125rem;
             color: var(--text-muted);
             margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
 
         strong {
@@ -80,16 +113,16 @@
         .wrapper {
             max-width: 720px;
             width: 100%;
-            padding: 0 24px;
+            padding: 0 var(--space-md);
             display: flex;
             flex-direction: column;
         }
 
         /* --- HERO SECTION --- */
         header {
-            padding: 120px 0 80px 0;
+            padding: var(--space-xxl) 0 var(--space-xl) 0;
             text-align: center;
-            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            position: relative;
         }
 
         .kicker {
@@ -98,40 +131,74 @@
             font-weight: 800;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--sage);
-            margin-bottom: 1rem;
-            display: block;
+            color: var(--sage-light);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--glow-sage);
+            border-radius: 100px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            max-width: 540px;
+            margin: 0 auto 2.5rem auto;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* --- BUTTON --- */
         .btn-container {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--text-main);
-            color: var(--bg-base);
             font-family: 'Inter', sans-serif;
             font-weight: 800;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
             text-decoration: none;
-            padding: 18px 36px;
-            border-radius: 100px; /* Pill shape for premium feel */
+            padding: 20px 40px;
+            border-radius: 100px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background: linear-gradient(135deg, var(--text-main) 0%, #ffffff 100%);
+            color: var(--bg-base);
+            box-shadow: var(--shadow-soft), 0 0 30px var(--glow-sage);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong), 0 0 50px var(--glow-sage);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-surface);
+            border-color: var(--sage);
+            color: var(--sage-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px var(--glow);
-            background-color: #ffffff;
         }
 
         .btn svg {
@@ -143,70 +210,268 @@
 
         /* --- CONTENT SECTIONS --- */
         section {
-            padding: 80px 0;
-            border-top: 1px solid var(--border-light);
+            padding: var(--space-xl) 0;
+            border-top: 1px solid var(--border-subtle);
             opacity: 0;
+            transform: translateY(30px);
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(2) { animation-delay: 0.15s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.45s; }
+
+        .content-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            margin-top: var(--space-md);
+        }
 
         .editorial-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.85;
+        }
+
+        .editorial-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        /* --- FEATURE HIGHLIGHTS --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .feature-item {
+            padding: var(--space-md);
+            background: var(--bg-surface-light);
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--sage);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--glow-sage);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--sage-light);
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* --- PRICING HIGHLIGHT --- */
+        .pricing-highlight {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-light) 100%);
+            border: 1px solid var(--gold);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .pricing-highlight h3 {
+            color: var(--gold-light);
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 60px 0;
+            padding: var(--space-xl) 0 var(--space-lg) 0;
             text-align: center;
-            border-top: 1px solid var(--border-light);
-            margin-top: 40px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 16px;
-        }
-
-        .footer-link {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--sage);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .footer-link:hover {
-            color: var(--gold);
+            border-top: 1px solid var(--border-subtle);
+            margin-top: var(--space-lg);
+            width: 100%;
         }
 
         .signature {
             font-family: 'DM Serif Display', serif;
             color: var(--text-subtle);
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-style: italic;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--sage-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .footer-link:hover {
+            color: var(--gold-light);
+            background: var(--glow-gold);
+        }
+
+        .footer-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .copyright {
+            margin-top: var(--space-lg);
+            font-size: 0.8rem;
+            color: var(--text-subtle);
+            font-family: 'Inter', sans-serif;
         }
 
         /* --- ANIMATIONS --- */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .animate-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* --- ACCESSIBILITY --- */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Focus States for Keyboard Navigation */
+        a:focus, button:focus {
+            outline: 2px solid var(--sage-light);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 600px) {
-            header { padding: 80px 0 60px 0; }
-            section { padding: 60px 0; }
-            .editorial-text { font-size: 1.1rem; }
-            .btn { width: 100%; padding: 20px 0; }
+        @media (max-width: 768px) {
+            :root {
+                --space-xxl: 80px;
+                --space-xl: 48px;
+                --space-lg: 32px;
+            }
+            
+            header { 
+                padding: var(--space-xl) 0 var(--space-lg) 0; 
+            }
+            
+            section { 
+                padding: var(--space-lg) 0; 
+            }
+            
+            .editorial-text { 
+                font-size: 1.05rem; 
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 18px 32px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                gap: 16px;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 0 var(--space-sm);
+            }
+            
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content-card {
+                padding: var(--space-md);
+            }
+        }
+
+        /* --- HIGH CONTRAST MODE SUPPORT --- */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-light: rgba(255, 255, 255, 0.3);
+                --text-muted: rgba(234, 232, 225, 0.9);
+            }
         }
     </style>
 </head>
@@ -218,37 +483,81 @@
         <header>
             <span class="kicker">Presence Over Perfection</span>
             <h1>The Siege</h1>
-            <p style="font-size: 1.3rem; max-width: 500px; margin: 0 auto;">A behavioral tool designed to help you commit to one real change at a time.</p>
+            <p class="hero-subtitle">A behavioral tool designed to help you commit to one real change at a time. No distractions. No judgment. Just progress.</p>
             
             <div class="btn-container">
-                <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" class="btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                     <svg viewBox="0 0 24 24">
                         <path d="M4,2.5V21.5L18.5,12L4,2.5M5.5,5.1L15.3,12L5.5,18.9V5.1Z"/>
                     </svg>
                     Get it on Google Play
                 </a>
+                <a href="#privacy" class="btn btn-secondary">Learn More</a>
             </div>
         </header>
+
+        <!-- FEATURES -->
+        <section>
+            <h2>Why The Siege Works</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>100% Private</h3>
+                    <p>Your data never leaves your device. Complete local storage with zero cloud syncing.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>One Change at a Time</h3>
+                    <p>Focus on breaking one pattern completely before moving to the next. Depth over breadth.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <h3>Science-Backed</h3>
+                    <p>Built on behavioral psychology principles. Proven methods for lasting change.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- THE ORIGIN (ABOUT US) -->
         <section>
             <h2>Built by a human, for humans.</h2>
-            <div class="editorial-text">
-                <p>There are no venture capitalists behind this app, and no corporate board. Just me. I am a solo developer, and I built The Siege entirely from scratch.</p>
-                <p>Rooted in behavioral psychology and science, this tool is designed to help you isolate a negative pattern and commit to breaking it. It isn’t designed to make you feel bad about your habits, but it won't coddle you either. It requires honesty and presence.</p>
-                <p>This current version represents my end vision of how the foundation should work. From here, its evolution will be guided by you. I welcome your feedback—whether you have ideas for new mechanics, or simply want to suggest new themes and color combinations.</p>
-                <p>I sincerely hope this tool helps you reclaim your time and mind.</p>
+            <div class="content-card">
+                <div class="editorial-text">
+                    <p>There are no venture capitalists behind this app, and no corporate board. Just me. I am a solo developer, and I built The Siege entirely from scratch.</p>
+                    <p>Rooted in behavioral psychology and science, this tool is designed to help you isolate a negative pattern and commit to breaking it. It isn't designed to make you feel bad about your habits, but it won't coddle you either. It requires honesty and presence.</p>
+                    <p>This current version represents my end vision of how the foundation should work. From here, its evolution will be guided by you. I welcome your feedback—whether you have ideas for new mechanics, or simply want to suggest new themes and color combinations.</p>
+                    <p style="color: var(--text-main); font-style: italic; margin-top: 2rem;">I sincerely hope this tool helps you reclaim your time and mind.</p>
+                </div>
             </div>
         </section>
 
         <!-- PRIVACY & PRICING -->
-        <section>
+        <section id="privacy">
             <h2>Privacy and Respect.</h2>
             <div class="editorial-text">
-                <p><strong>Your data is 100% local.</strong> What you write stays on your device. We do not collect your personal entries, and we do not send them to any servers. It is entirely private to you.</p>
-                <p>Unlike many apps, we refuse to shove ads in your face or lock the core experience behind a hard paywall. The primary functions of The Siege can be accessed without ever watching an ad or paying a cent. For free users, ad trackers are present, but rest assured: they only collect data related to delivering the ads, absolutely nothing regarding what you do inside the app.</p>
-                <p><strong>You are in control.</strong> You decide when to interact with the ad system. Watching two short 30-second ads will unlock almost all premium features and completely hide the ad system for the next 24 hours. A seamless, uninterrupted experience on your terms.</p>
-                <p>If you find value here and decide to go Premium, you can support development for less than the price of a coffee. And if you aren't a fan of subscriptions, there is a Lifetime option: pay once, own the software, and receive all future updates forever.</p>
+                <div class="content-card">
+                    <p><strong style="color: var(--sage-light);">Your data is 100% local.</strong> What you write stays on your device. We do not collect your personal entries, and we do not send them to any servers. It is entirely private to you.</p>
+                    <p>Unlike many apps, we refuse to shove ads in your face or lock the core experience behind a hard paywall. The primary functions of The Siege can be accessed without ever watching an ad or paying a cent. For free users, ad trackers are present, but rest assured: they only collect data related to delivering the ads, absolutely nothing regarding what you do inside the app.</p>
+                </div>
+
+                <div class="pricing-highlight">
+                    <h3>You Are In Control</h3>
+                    <p>You decide when to interact with the ad system. Watching two short 30-second ads will unlock almost all premium features and completely hide the ad system for the next 24 hours. A seamless, uninterrupted experience on your terms.</p>
+                    <p style="margin-bottom: 0; color: var(--text-main);"><strong>Prefer no ads?</strong> Support development for less than the price of a coffee with Premium, or choose Lifetime to own the software forever with all future updates included.</p>
+                </div>
             </div>
         </section>
 
@@ -257,17 +566,44 @@
             <div class="signature">Built with intent.</div>
             <div class="footer-links">
                 <a href="mailto:siegebrokenloop@gmail.com?subject=Application%20Feedback" class="footer-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
                     Contact Support
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" target="_blank" rel="noopener noreferrer" class="footer-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2.5v19l14.5-9.5z"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 2.5v19l14.5-9.5z"/>
+                    </svg>
                     Google Play
                 </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> The Siege. All rights reserved.
             </div>
         </footer>
 
     </div>
+
+    <script>
+        // Auto-update year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
