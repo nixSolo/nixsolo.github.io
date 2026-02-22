@@ -3,214 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Siege | Break the Loop</title>
+    <title>The Siege | Intentional Change</title>
     
-    <!-- Typography aligned with app design tokens -->
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Extracted from Page1ColoursDark */
-            --bg: #0D1110;
-            --surface: #161B19;
-            --text: #EAE8E1;
-            --text-muted: rgba(234, 232, 225, 0.6);
+            /* Premium Dark Theme Palette */
+            --bg-base: #0D1110;
+            --bg-surface: #161B19;
+            --text-main: #EAE8E1;
+            --text-muted: rgba(234, 232, 225, 0.65);
+            --text-subtle: rgba(234, 232, 225, 0.4);
             --gold: #D4AF37;
             --sage: #8DA399;
-            --radius-large: 32px;
-            --radius-medium: 16px;
+            --border-light: rgba(255, 255, 255, 0.06);
+            --glow: rgba(141, 163, 153, 0.15);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-base);
+            color: var(--text-main);
             font-family: 'Lora', serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* --- TYPOGRAPHY --- */
         h1, h2, h3 {
             font-family: 'DM Serif Display', serif;
             font-weight: normal;
+            margin-bottom: 1.5rem;
         }
 
-        .container {
-            max-width: 800px;
+        h1 {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* --- LAYOUT --- */
+        .wrapper {
+            max-width: 720px;
             width: 100%;
-            padding: 64px 24px;
+            padding: 0 24px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            flex-grow: 1;
         }
 
         /* --- HERO SECTION --- */
-        .hero {
+        header {
+            padding: 120px 0 80px 0;
             text-align: center;
-            padding: 40px 0;
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            letter-spacing: 4px;
-            margin-bottom: 16px;
-            color: var(--text);
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 48px;
-            font-style: italic;
+        /* --- BUTTON --- */
+        .btn-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
         }
 
-        /* --- PRIMARY ACTION BUTTON --- */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--text);
-            color: var(--bg);
+            background-color: var(--text-main);
+            color: var(--bg-base);
             font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 1.5px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             text-decoration: none;
-            padding: 24px 48px;
-            border-radius: var(--radius-medium);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 18px 36px;
+            border-radius: 100px; /* Pill shape for premium feel */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(234, 232, 225, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--glow);
+            background-color: #ffffff;
         }
 
         .btn svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             margin-right: 12px;
             fill: currentColor;
         }
 
-        /* --- CARDS --- */
-        .card {
-            background-color: var(--surface);
-            padding: 48px;
-            border-radius: var(--radius-large);
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* --- CONTENT SECTIONS --- */
+        section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-light);
             opacity: 0;
-            animation: fadeUp 0.8s ease-out forwards;
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
 
-        .card h2 {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-            color: var(--gold);
-        }
-
-        .card p {
-            font-size: 1.15rem;
-            color: var(--text);
+        .editorial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         /* --- FOOTER --- */
-        .footer {
+        footer {
+            padding: 60px 0;
             text-align: center;
-            padding: 40px 24px;
-            width: 100%;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
         }
 
-        .footer p {
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .footer-link {
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .feedback-btn {
             color: var(--sage);
             text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-weight: 500;
             transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .feedback-btn:hover {
+        .footer-link:hover {
             color: var(--gold);
+        }
+
+        .signature {
+            font-family: 'DM Serif Display', serif;
+            color: var(--text-subtle);
+            font-size: 1.1rem;
+            font-style: italic;
         }
 
         /* --- ANIMATIONS --- */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .card { padding: 32px 24px; border-radius: 24px; }
-            .card h2 { font-size: 1.8rem; }
+        @media (max-width: 600px) {
+            header { padding: 80px 0 60px 0; }
+            section { padding: 60px 0; }
+            .editorial-text { font-size: 1.1rem; }
             .btn { width: 100%; padding: 20px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
+        
         <!-- HEADER -->
-        <header class="hero">
-            <h1>THE SIEGE</h1>
-            <p>"Presence over perfection."</p>
-            <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" class="btn" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4,2.5V21.5L18.5,12L4,2.5M5.5,5.1L15.3,12L5.5,18.9V5.1Z"/>
-                </svg>
-                Download on Google Play
-            </a>
+        <header>
+            <span class="kicker">Presence Over Perfection</span>
+            <h1>The Siege</h1>
+            <p style="font-size: 1.3rem; max-width: 500px; margin: 0 auto;">A behavioral tool designed to help you commit to one real change at a time.</p>
+            
+            <div class="btn-container">
+                <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4,2.5V21.5L18.5,12L4,2.5M5.5,5.1L15.3,12L5.5,18.9V5.1Z"/>
+                    </svg>
+                    Get it on Google Play
+                </a>
+            </div>
         </header>
 
-        <!-- ABOUT SECTION -->
-        <section class="card">
-            <h2>The Protocol</h2>
-            <p>The Siege is a minimalist behavioral tool designed to help you identify negative patterns, set daily anchors, and build consistent habits. No gamification, no artificial streaks—just a clinical approach to regaining control over your time and mind.</p>
+        <!-- THE ORIGIN (ABOUT US) -->
+        <section>
+            <h2>Built by a human, for humans.</h2>
+            <div class="editorial-text">
+                <p>There are no venture capitalists behind this app, and no corporate board. Just me. I am a solo developer, and I built The Siege entirely from scratch.</p>
+                <p>Rooted in behavioral psychology and science, this tool is designed to help you isolate a negative pattern and commit to breaking it. It isn’t designed to make you feel bad about your habits, but it won't coddle you either. It requires honesty and presence.</p>
+                <p>This current version represents my end vision of how the foundation should work. From here, its evolution will be guided by you. I welcome your feedback—whether you have ideas for new mechanics, or simply want to suggest new themes and color combinations.</p>
+                <p>I sincerely hope this tool helps you reclaim your time and mind.</p>
+            </div>
         </section>
 
-        <!-- PRIVACY SECTION -->
-        <section class="card">
-            <h2>Data Sovereignty</h2>
-            <p>Privacy is a fundamental requirement. This system operates 100% locally. Your data never leaves your device, and the application demands no attention. No accounts, no cloud sync, no tracking. You retain full control.</p>
+        <!-- PRIVACY & PRICING -->
+        <section>
+            <h2>Privacy and Respect.</h2>
+            <div class="editorial-text">
+                <p><strong>Your data is 100% local.</strong> What you write stays on your device. We do not collect your personal entries, and we do not send them to any servers. It is entirely private to you.</p>
+                <p>Unlike many apps, we refuse to shove ads in your face or lock the core experience behind a hard paywall. The primary functions of The Siege can be accessed without ever watching an ad or paying a cent. For free users, ad trackers are present, but rest assured: they only collect data related to delivering the ads, absolutely nothing regarding what you do inside the app.</p>
+                <p><strong>You are in control.</strong> You decide when to interact with the ad system. Watching two short 30-second ads will unlock almost all premium features and completely hide the ad system for the next 24 hours. A seamless, uninterrupted experience on your terms.</p>
+                <p>If you find value here and decide to go Premium, you can support development for less than the price of a coffee. And if you aren't a fan of subscriptions, there is a Lifetime option: pay once, own the software, and receive all future updates forever.</p>
+            </div>
         </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="signature">Built with intent.</div>
+            <div class="footer-links">
+                <a href="mailto:siegebrokenloop@gmail.com?subject=Application%20Feedback" class="footer-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Contact Support
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2.5v19l14.5-9.5z"></path></svg>
+                    Google Play
+                </a>
+            </div>
+        </footer>
+
     </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>Command & Control</p>
-        <a href="mailto:siegebrokenloop@gmail.com?subject=Application%20Feedback" class="feedback-btn">Contact Support</a>
-    </footer>
 
 </body>
 </html>
