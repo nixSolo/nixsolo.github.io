@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Siege | Break the Loop</title>
+    
+    <!-- Typography aligned with app design tokens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Extracted from Page1ColoursDark */
+            --bg: #0D1110;
+            --surface: #161B19;
+            --text: #EAE8E1;
+            --text-muted: rgba(234, 232, 225, 0.6);
+            --gold: #D4AF37;
+            --sage: #8DA399;
+            --radius-large: 32px;
+            --radius-medium: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: normal;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 64px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            font-style: italic;
+        }
+
+        /* --- PRIMARY ACTION BUTTON --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--text);
+            color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            padding: 24px 48px;
+            border-radius: var(--radius-medium);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(234, 232, 225, 0.15);
+        }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            fill: currentColor;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background-color: var(--surface);
+            padding: 48px;
+            border-radius: var(--radius-large);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.4s; }
+
+        .card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: var(--gold);
+        }
+
+        .card p {
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feedback-btn {
+            color: var(--sage);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .feedback-btn:hover {
+            color: var(--gold);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .card { padding: 32px 24px; border-radius: 24px; }
+            .card h2 { font-size: 1.8rem; }
+            .btn { width: 100%; padding: 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="hero">
+            <h1>THE SIEGE</h1>
+            <p>"Presence over perfection."</p>
+            <a href="https://play.google.com/store/apps/details?id=com.the.siege.the_siege&hl=it" class="btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4,2.5V21.5L18.5,12L4,2.5M5.5,5.1L15.3,12L5.5,18.9V5.1Z"/>
+                </svg>
+                Download on Google Play
+            </a>
+        </header>
+
+        <!-- ABOUT SECTION -->
+        <section class="card">
+            <h2>The Protocol</h2>
+            <p>The Siege is a minimalist behavioral tool designed to help you identify negative patterns, set daily anchors, and build consistent habits. No gamification, no artificial streaks—just a clinical approach to regaining control over your time and mind.</p>
+        </section>
+
+        <!-- PRIVACY SECTION -->
+        <section class="card">
+            <h2>Data Sovereignty</h2>
+            <p>Privacy is a fundamental requirement. This system operates 100% locally. Your data never leaves your device, and the application demands no attention. No accounts, no cloud sync, no tracking. You retain full control.</p>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Command & Control</p>
+        <a href="mailto:siegebrokenloop@gmail.com?subject=Application%20Feedback" class="feedback-btn">Contact Support</a>
+    </footer>
+
+</body>
+</html>
