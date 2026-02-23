@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Siege - Privacy Policy and Terms of Service">
+    <meta name="theme-color" content="#0D1110">
+    <title>The Siege | Privacy & Legal</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Premium Dark Theme Palette - Matched to Flutter App */
+            --bg-base: #0D1110;
+            --bg-surface: #161B19;
+            --bg-surface-light: #1A201E;
+            --text-main: #EAE8E1;
+            --text-muted: rgba(234, 232, 225, 0.7);
+            --text-subtle: rgba(234, 232, 225, 0.5);
+            --gold: #D4AF37;
+            --gold-light: #E6C259;
+            --sage: #8DA399;
+            --sage-light: #A5BDB0;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --glow-sage: rgba(141, 163, 153, 0.2);
+            --glow-gold: rgba(212, 175, 55, 0.15);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.6);
+            
+            /* Spacing Scale */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 64px;
+            --space-xxl: 120px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(ellipse at top, var(--bg-surface-light) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(141, 163, 153, 0.03) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text-main);
+            margin: var(--space-lg) 0 var(--space-md) 0;
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            color: var(--sage-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: var(--space-md) 0 var(--space-sm) 0;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .highlight {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .warning {
+            color: var(--gold-light);
+            border-left: 3px solid var(--gold);
+            padding-left: var(--space-md);
+            margin: var(--space-md) 0;
+            font-style: italic;
+        }
+
+        /* --- LAYOUT --- */
+        .wrapper {
+            max-width: 720px;
+            width: 100%;
+            padding: 0 var(--space-md);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: var(--space-xxl) 0 var(--space-xl) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sage-light);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--glow-sage);
+            border-radius: 100px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .last-updated {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-subtle);
+            margin-top: var(--space-sm);
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            padding: var(--space-lg) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+        section:nth-child(7) { animation-delay: 0.6s; }
+        section:nth-child(8) { animation-delay: 0.7s; }
+
+        .content-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            margin-top: var(--space-md);
+        }
+
+        ul {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-md);
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* --- BUTTON --- */
+        .btn-container {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 100px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--text-main) 0%, #ffffff 100%);
+            color: var(--bg-base);
+            box-shadow: var(--shadow-soft), 0 0 30px var(--glow-sage);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong), 0 0 50px var(--glow-sage);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-surface);
+            border-color: var(--sage);
+            color: var(--sage-light);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            fill: currentColor;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: var(--space-xl) 0 var(--space-lg) 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: var(--space-lg);
+            width: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+        }
+
+        .footer-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--sage-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .footer-link:hover {
+            color: var(--gold-light);
+            background: var(--glow-gold);
+        }
+
+        .footer-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .copyright {
+            margin-top: var(--space-lg);
+            font-size: 0.8rem;
+            color: var(--text-subtle);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* --- ACCESSIBILITY --- */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--sage-light);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            :root {
+                --space-xxl: 80px;
+                --space-xl: 48px;
+                --space-lg: 32px;
+            }
+            
+            header { 
+                padding: var(--space-xl) 0 var(--space-lg) 0; 
+            }
+            
+            section { 
+                padding: var(--space-lg) 0; 
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 18px 32px;
+            }
+            
+            .footer-links {
+                gap: 16px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .content-card {
+                padding: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 0 var(--space-sm);
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- HEADER -->
+        <header>
+            <span class="kicker">Privacy & Legal</span>
+            <h1>The Siege</h1>
+            <p class="last-updated">Last Updated: January 12, 2026</p>
+            
+            <div class="btn-container">
+                <a href="index.html" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="mailto:siegebrokenloop@gmail.com?subject=Privacy%20Policy%20Question" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Contact Support
+                </a>
+            </div>
+        </header>
+
+        <!-- SECTION 1: INTRODUCTION -->
+        <section>
+            <h2>1. Introduction</h2>
+            <div class="content-card">
+                <p><strong>"The Siege: Break the Loop"</strong> ("The Siege" or "the App") is developed and maintained by a solo independent developer.</p>
+                <p>By downloading or using the App, you agree to this Privacy Policy and Terms of Service.</p>
+                <p>The Siege is designed as a self-management and habit-tracking tool to support personal discipline and reflection.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MEDICAL DISCLAIMER -->
+        <section>
+            <h2>2. Medical Disclaimer (Important)</h2>
+            <div class="content-card">
+                <p>The Siege is <strong>not</strong> a medical or therapeutic device.</p>
+                <p>The content, tools, prompts, and techniques provided in the App are for self-help and educational purposes only. They are not a substitute for professional medical advice, diagnosis, or treatment.</p>
+                <div class="warning">
+                    <p style="margin-bottom: 0;">If you are experiencing a mental health crisis, suicidal thoughts, or severe distress, contact a licensed medical professional or emergency services immediately.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: DATA PRIVACY -->
+        <section>
+            <h2>3. Data Privacy – Your Data Stays on Your Device</h2>
+            <div class="content-card">
+                <p>The Siege is built with a <span class="highlight">privacy-first philosophy</span>.</p>
+                <p>For the current version (Version 1):</p>
+                
+                <h3>Local Storage Only</h3>
+                <p>All journal entries, reflections, habit logs, streaks, and internal progress data are stored locally on your device using SQLite.</p>
+                
+                <h3>No Cloud Sync</h3>
+                <p>The Siege does not upload, transmit, or store your journal entries or personal reflections on any external server.</p>
+                
+                <h3>No Account Required</h3>
+                <p>The App does not require your name, email address, phone number, or personal identity information.</p>
+                
+                <h3>Anonymous Local Identifier</h3>
+                <p>A random UUID is generated locally on your device to manage streaks and internal tracking. This identifier never leaves your device.</p>
+                
+                <p>If you uninstall the App, your data is permanently deleted unless you manually export it beforehand.</p>
+                <p>The Siege itself does not collect, sell, rent, or share personal user data.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4: THIRD-PARTY SERVICES -->
+        <section>
+            <h2>4. Third-Party Services</h2>
+            <div class="content-card">
+                <p>While The Siege does not collect personal data, certain third-party services integrated into the App may collect limited technical information necessary for their operation.</p>
+                
+                <h3>RevenueCat (Subscription Management)</h3>
+                <p>RevenueCat is used to manage in-app subscriptions and purchases.</p>
+                <p>RevenueCat may process:</p>
+                <ul>
+                    <li>Anonymous device identifiers</li>
+                    <li>Purchase transaction data</li>
+                    <li>Subscription status information</li>
+                </ul>
+                <p>RevenueCat does not receive your journal content or personal reflections.</p>
+                
+                <h3>Google AdMob (Advertising)</h3>
+                <p>AdMob may be used to display advertisements within the App.</p>
+                <p>AdMob may collect:</p>
+                <ul>
+                    <li>Device identifiers</li>
+                    <li>Advertising identifiers</li>
+                    <li>Basic usage and interaction data</li>
+                </ul>
+                <p>This data collection is governed by Google's Privacy Policy.</p>
+                
+                <h3>Google Play Services</h3>
+                <p>Used for:</p>
+                <ul>
+                    <li>App distribution</li>
+                    <li>Crash reporting</li>
+                    <li>Security and integrity services</li>
+                </ul>
+                <p>These services may collect technical diagnostic data.</p>
+                <p>The Siege does not control how third-party services process data. Please refer to their respective privacy policies for more information.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: DATA DELETION -->
+        <section>
+            <h2>5. Data Deletion ("Kill Switch")</h2>
+            <div class="content-card">
+                <p>You maintain <span class="highlight">full control</span> over your data.</p>
+                <p>At any time, you may permanently delete all local data by navigating to:</p>
+                <p style="text-align: center; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--gold-light); padding: var(--space-md); background: var(--bg-surface-light); border-radius: 12px; margin: var(--space-md) 0;">
+                    Settings → Danger Zone → Delete Account
+                </p>
+                <p>This action:</p>
+                <ul>
+                    <li>Deletes the local database</li>
+                    <li>Removes all journal entries</li>
+                    <li>Resets streaks</li>
+                    <li>Cannot be undone</li>
+                </ul>
+                <p>There is no server copy.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 6: TERMS OF USE -->
+        <section>
+            <h2>6. Terms of Use</h2>
+            <div class="content-card">
+                <h3>Eligibility</h3>
+                <p>You must be at least 13 years old to use The Siege.</p>
+                
+                <h3>Acceptable Use</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Reverse engineer, decompile, or modify the App</li>
+                    <li>Use the App for illegal or harmful activities</li>
+                    <li>Attempt to exploit vulnerabilities</li>
+                </ul>
+                
+                <h3>No Warranty</h3>
+                <p>The Siege is provided "as is" without warranties of any kind.</p>
+                <p>I do not guarantee specific behavioral, psychological, or habit-based outcomes.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 7: CHANGES TO POLICY -->
+        <section>
+            <h2>7. Changes to This Policy</h2>
+            <div class="content-card">
+                <p>This policy may be updated in future versions of the App.</p>
+                <p>Continued use of the App after updates constitutes acceptance of the revised policy.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 8: CONTACT -->
+        <section>
+            <h2>8. Contact</h2>
+            <div class="content-card">
+                <p>If you have questions about this policy, press the Support button below:</p>
+                <div class="btn-container" style="margin-top: var(--space-md);">
+                    <a href="mailto:siegebrokenloop@gmail.com?subject=Privacy%20Policy%20Question" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    Home
+                </a>
+                <a href="mailto:siegebrokenloop@gmail.com?subject=Privacy%20Policy%20Question" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Contact Support
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> The Siege. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Auto-update year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
